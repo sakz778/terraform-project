@@ -60,6 +60,7 @@ route {
     Name     = "public_route_table"
     }
     }
+    
 # associate public subnet az1 to "public route table"
 # terraform aws associate subnet with route table
 resource "aws_route_table_association" "public_subnet_az1_route_table_association" {
