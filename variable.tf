@@ -19,6 +19,12 @@ variable "public_subnet_az2_cidr" {
     type         = string
 }
 
+variable "public_route_table_cidr_block" {
+    default      = "0.0.0.0/0"
+    description  = "public route table cidr block"
+    type         = string  
+}
+
 # private app subnet az1 cidr block
 variable "private_app_subnet_az1_cidr" {
     default      = "10.0.2.0/24"

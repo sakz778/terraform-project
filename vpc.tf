@@ -49,18 +49,17 @@ resource "aws_subnet" "public_subnet_az2" {
 # create route table and add public route
 # terraform aws create route table
 resource "aws_route_table" "public_route_table" {
-  vpc_id       = aws_vpc.sakz_vpc.id
+ vpc_id       = aws_vpc.sakz_vpc.id
 
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.igw.id
+route {
+  cidr_block = var.public_route_table_cidr_block
+  gateway_id = aws_internet_gateway.igw.id
   }
 
   tags       = {
-    Name     = "public route table"
-  }
-}
-
+    Name     = "public_route_table"
+    }
+    }
 # associate public subnet az1 to "public route table"
 # terraform aws associate subnet with route table
 resource "aws_route_table_association" "public_subnet_az1_route_table_association" {
